@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="running" static="0" type="number">0</variable>
+        <event-block>
+            <conditions>
+                <condition id="-2" name="On start of layout" type="System" />
+            </conditions>
+            <actions>
+                <action id="2" name="Stop" type="schere" />
+                <action id="5" name="Set frame" type="schere">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="On clicked" type="bStart" />
+            </conditions>
+            <actions>
+                <action behavior="Physics" id="21" name="Set immovable" type="ball">
+                    <param id="0" name="Setting">0</param>
+                </action>
+                <action behavior="DragDrop" id="0" name="Set enabled" type="ball">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action behavior="DragDrop" id="0" name="Set enabled" type="schere">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-9" name="Set value" type="System">
+                    <param id="0" name="Variable">running</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="On collision with another object" type="ball">
+                    <param id="0" name="Object">schere</param>
+                </condition>
+                <condition id="-14" name="Compare variable" type="System">
+                    <param id="0" name="Variable">running</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="3" name="Start" type="schere">
+                    <param id="0" name="From">0</param>
+                </action>
+                <action id="-13" name="Set boolean" type="schere">
+                    <param id="0" name="Instance variable">closed</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="1" name="Is overlapping another object" type="schere">
+                    <param id="0" name="Object">seil</param>
+                </condition>
+                <condition id="-8" name="Is boolean instance variable set" type="schere">
+                    <param id="0" name="Instance variable">closed</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="2" name="Set gravity" type="ballon">
+                    <param id="0" name="Gravity">-5</param>
+                </action>
+                <action id="-9" name="Destroy" type="seil" />
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition behavior="DragDrop" id="2" name="On drop" type="ball" />
+                <condition id="1" name="Is overlapping another object" type="ball">
+                    <param id="0" name="Object">menu_bg</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" type="ball">
+                    <param id="0" name="X">736</param>
+                    <param id="1" name="Y">64</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="1" name="Is overlapping another object" type="ball">
+                    <param id="0" name="Object">menu_bg</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Physics" id="21" name="Set immovable" type="ball">
+                    <param id="0" name="Setting">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition behavior="DragDrop" id="2" name="On drop" type="schere" />
+                <condition id="1" name="Is overlapping another object" type="schere">
+                    <param id="0" name="Object">menu_bg</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" type="schere">
+                    <param id="0" name="X">736</param>
+                    <param id="1" name="Y">128</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="-14" name="Compare variable" type="System">
+                    <param id="0" name="Variable">running</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="2" name="Stop" type="schere" />
+                <action id="5" name="Set frame" type="schere">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions />
+            <actions />
+        </event-block>
+    </events>
+</c2eventsheet>
