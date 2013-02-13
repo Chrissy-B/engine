@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
     <events>
+        <variable constant="0" name="goalTime" static="0" type="number">0</variable>
         <variable constant="0" name="running" static="0" type="number">0</variable>
         <event-block>
             <conditions>
@@ -18,6 +19,11 @@
         <event-block>
             <conditions>
                 <condition id="0" name="On clicked" type="bStart" />
+                <condition id="-14" name="Compare variable" type="System">
+                    <param id="0" name="Variable">running</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
             </conditions>
             <actions>
                 <action behavior="Physics" id="21" name="Set immovable" type="ball">
@@ -28,6 +34,15 @@
                 </action>
                 <action behavior="DragDrop" id="0" name="Set enabled" type="schere">
                     <param id="0" name="State">0</param>
+                </action>
+                <action behavior="Physics" id="21" name="Set immovable" type="Kugel">
+                    <param id="0" name="Setting">0</param>
+                </action>
+                <action behavior="Physics" id="21" name="Set immovable" type="wood">
+                    <param id="0" name="Setting">0</param>
+                </action>
+                <action behavior="Physics" id="21" name="Set immovable" type="ballon">
+                    <param id="0" name="Setting">0</param>
                 </action>
                 <action id="-9" name="Set value" type="System">
                     <param id="0" name="Variable">running</param>
@@ -67,7 +82,7 @@
             </conditions>
             <actions>
                 <action behavior="Bullet" id="2" name="Set gravity" type="ballon">
-                    <param id="0" name="Gravity">-5</param>
+                    <param id="0" name="Gravity">-10</param>
                 </action>
                 <action id="-9" name="Destroy" type="seil" />
             </actions>
@@ -128,8 +143,37 @@
             </actions>
         </event-block>
         <event-block>
-            <conditions />
-            <actions />
+            <conditions>
+                <condition id="1" name="Is overlapping another object" type="Kugel">
+                    <param id="0" name="Object">ziel</param>
+                </condition>
+                <condition id="-6" name="Every X seconds" type="System">
+                    <param id="0" name="Interval (seconds)">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" type="System">
+                    <param id="0" name="Variable">goalTime</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="-14" name="Compare variable" type="System">
+                    <param id="0" name="Variable">goalTime</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">5</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" type="Kugel">
+                    <param id="0" name="Object">ziel</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" type="endText">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>
